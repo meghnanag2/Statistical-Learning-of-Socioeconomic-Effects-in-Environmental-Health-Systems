@@ -8,17 +8,39 @@ The work combines exploratory data analysis with multi-output machine learning m
 
 ## Data
 
-The analysis is based on the Medical Expenditure Panel Survey (MEPS), which provides detailed individual-level data on healthcare usage and socioeconomic conditions in the United States.
+<p align="center">
+  <img src="images/Data_Integration_Image.png" width="800">
+</p>
 
-Key variables used in this project include:
+The analysis is based on the Medical Expenditure Panel Survey (MEPS), a nationally representative dataset capturing individual-level healthcare usage, expenditures, and socioeconomic conditions across the United States.
 
-- Age, sex, race, and ethnicity  
-- Personal and family income  
-- Poverty category  
-- Insurance coverage and access to prescription medication  
-- Drug usage and derived concentration-related features  
+The diagram above illustrates how multiple data components were combined to form a unified analytical dataset. Information from prescription records, demographic attributes, and socioeconomic indicators was integrated to enable population-level modeling.
 
-Additional features such as dosage and concentration proxies were constructed to support modeling.
+### Core Variables
+
+The final dataset includes the following categories of features:
+
+- **Demographic attributes:**  
+  Age, sex, race, and ethnicity  
+
+- **Socioeconomic indicators:**  
+  Personal income, family income, and poverty category  
+
+- **Healthcare access variables:**  
+  Insurance coverage and access to prescribed medication  
+
+- **Prescription-related features:**  
+  Drug identity, dosage-related attributes, and usage patterns  
+
+### Addiitonal Feature Added
+
+To support modeling, additional variables were derived from the raw data:
+
+- Daily dosage calculated from prescription attributes  
+- Concentration proxies representing estimated environmental impact  
+- Encoded categorical variables for model compatibility  
+
+The integrated dataset was then cleaned, standardized, and aligned across years to ensure consistency for downstream analysis.
 
 
 ## Modeling Approach
