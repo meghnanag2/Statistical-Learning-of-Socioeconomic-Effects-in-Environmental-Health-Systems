@@ -158,11 +158,8 @@ This imbalance is important when interpreting results, as model predictions are 
 
 ## Results
 
-## Results
-
 The models were evaluated across both classification (drug prediction) and regression (concentration estimation) tasks. Performance varied across approaches, with different models performing better depending on the objective.
 
----
 
 ### KNN Model (Multi-output)
 
@@ -185,7 +182,6 @@ However, its performance was more limited for continuous prediction tasks, espec
 </tr>
 </table>
 
----
 
 ### Decision Tree Model
 
