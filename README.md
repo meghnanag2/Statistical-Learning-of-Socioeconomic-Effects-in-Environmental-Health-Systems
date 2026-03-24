@@ -158,31 +158,64 @@ This imbalance is important when interpreting results, as model predictions are 
 
 ## Results
 
-The study evaluated multiple modeling approaches, including linear regression, logistic regression, random forest, multi-output KNN with PCA, and multi-output decision trees, to predict both drug identity and concentration-related outcomes.
+## Results
 
-Overall, model performance varied significantly across tasks:
+The models were evaluated across both classification (drug prediction) and regression (concentration estimation) tasks. Performance varied across approaches, with different models performing better depending on the objective.
 
-- **Drug prediction (classification):**  
-  The multi-output K-Nearest Neighbors (KNN) model achieved the strongest performance, with very high recall (approximately 0.99). This indicates that instance-based methods were effective in capturing similarities in demographic and socioeconomic profiles associated with specific drugs.
+---
 
-- **Concentration prediction (regression / categorical levels):**  
-  The multi-output decision tree model performed best for predicting concentration levels, achieving recall around 0.87. Tree-based methods were better suited for capturing nonlinear relationships between socioeconomic variables and concentration categories.
+### KNN Model (Multi-output)
 
-- **Linear and logistic regression models:**  
-  These models showed consistently low performance, with near-zero or negative R² values for regression and low classification accuracy. This suggests that linear assumptions are insufficient to model the complexity of the relationships in the data.
+<table>
+<tr>
+<td width="50%">
 
-- **Random forest model:**  
-  Performance improved notably after feature reduction. In particular, removing less informative variables while retaining socioeconomic features led to a 34–36% improvement in accuracy, indicating the strong influence of these variables.
+The K-Nearest Neighbors model performed strongly for drug classification, achieving high recall and consistency across common drug categories. 
 
-Across all models, **socioeconomic features (income, insurance coverage, poverty category)** emerged as key contributors to predictive performance, reinforcing their importance in understanding pharmaceutical patterns.
+Because KNN relies on similarity in feature space, it was effective in capturing patterns among individuals with similar demographic and socioeconomic profiles. This made it particularly suitable for identifying drug usage patterns.
 
-Additionally, temporal analysis showed that overall pharmaceutical concentrations generally decreased between 2014 and 2022, with variations across specific drug categories. These trends highlight the dynamic nature of the data and the need for models that can account for temporal shifts.
+However, its performance was more limited for continuous prediction tasks, especially when relationships between variables were more complex or nonlinear.
 
-In summary:
+</td>
+<td width="50%">
 
-- KNN-based models were most effective for **drug prediction**  
-- Decision tree models were most effective for **concentration prediction**  
-- Socioeconomic variables played a central role across all modeling approaches
+<img src="images/KNN.jpeg" width="100%">
+
+</td>
+</tr>
+</table>
+
+---
+
+### Decision Tree Model
+
+<table>
+<tr>
+<td width="50%">
+
+The decision tree model performed better for concentration prediction, where relationships between variables were less linear and more hierarchical in nature.
+
+Tree-based splitting allowed the model to capture interactions between socioeconomic factors such as income, insurance coverage, and poverty category. This made it more effective for modeling concentration-related outcomes compared to distance-based methods.
+
+</td>
+<td width="50%" align="center">
+
+<img src="images/DecisionTree.png" style="max-height: 100px; width: auto;">
+
+</td>
+</tr>
+</table>
+---
+
+### Overall Observations
+
+- KNN was more effective for classification tasks involving drug prediction  
+- Decision trees handled nonlinear relationships better for concentration estimation  
+- Linear models struggled to capture the structure in the data  
+- Socioeconomic variables consistently contributed strong predictive signal  
+
+The results suggest that model choice should depend on the nature of the prediction task, particularly whether relationships are similarity-based or nonlinear.
+
 
 
   ## Code
