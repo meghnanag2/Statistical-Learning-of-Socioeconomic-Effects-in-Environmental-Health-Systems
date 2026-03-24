@@ -95,35 +95,65 @@ Model performance was evaluated using:
 Results were compared across models to determine the most effective approach for each prediction task.
 
 
-## Visual Analysis
+## Data Visualization 
 
 ### Correlation Structure Across Features
 
-<p align="center">
-  <img src="results/figures/correlation_heatmap.png" width="700">
-</p>
+<table>
+<tr>
+<td width="50%">
 
-The correlation matrix shows strong relationships among socioeconomic variables. In particular, personal income, family income, and poverty category form a tightly correlated group, while insurance-related variables exhibit inverse relationships with poverty indicators. These structures directly influenced feature selection and model behavior.
+The correlation matrix highlights clear structure among socioeconomic variables. Personal income, family income, and poverty category form a tightly related group, indicating strong overlap in economic indicators. 
 
+Insurance-related variables show inverse relationships with poverty, suggesting differences in healthcare access across income levels. These patterns guided feature selection and influenced how models captured relationships in the data.
+
+</td>
+<td width="50%">
+
+<img src="results/figures/correlation_heatmap.png" width="100%">
+
+</td>
+</tr>
+</table>
 
 
 ### Temporal Trends in Drug Usage
 
-<p align="center">
-  <img src="results/figures/drug_trends.png" width="700">
-</p>
+<table>
+<tr>
+<td width="50%">
 
-This plot tracks changes in average dosage over time. The noticeable drop around 2018–2021 followed by recovery suggests non-stationary behavior in the data. These temporal shifts make prediction more challenging and explain variability in model performance across years.
+The temporal trend analysis reveals non-uniform behavior across years. A noticeable decline in dosage levels between 2018 and 2021, followed by recovery, indicates shifts in underlying usage patterns.
 
+This non-stationarity introduces additional complexity for modeling, as relationships between features and outcomes are not consistent over time.
+
+</td>
+<td width="50%">
+
+<img src="results/figures/drug_trends.png" width="100%">
+
+</td>
+</tr>
+</table>
 
 ### Demographic Distribution
 
-<p align="center">
-  <img src="results/figures/demographic_distribution.png" width="700">
-</p>
+<table>
+<tr>
+<td width="50%">
 
-The age distribution is skewed toward middle-aged and older populations, which aligns with higher healthcare utilization patterns. This imbalance is important for interpreting predictions, as the model is naturally more influenced by these dominant age groups.
+The age distribution is skewed toward middle-aged and older populations, reflecting higher healthcare utilization in these groups.
 
+This imbalance is important when interpreting results, as model predictions are naturally influenced more by these dominant segments of the dataset.
+
+</td>
+<td width="50%">
+
+<img src="results/figures/demographic_distribution.png" width="100%">
+
+</td>
+</tr>
+</table>
 
 
 ## Results
